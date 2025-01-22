@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find the Heart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffe6e6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      color: #ff4d4d;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 300px;
+      margin: 20px auto;
+    }
+    .box {
+      width: 70px;
+      height: 70px;
+      background-color: #ffb3b3;
+      border: 2px solid #ff6666;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .box:hover {
+      background-color: #ff8080;
+    }
+    .hidden-heart {
+      visibility: hidden;
+      font-size: 2rem;
+      color: #ff4d4d;
+    }
+    .show-heart {
+      visibility: visible;
+    }
+    #message {
+      display: none;
+      font-size: 1.2rem;
+      color: #990000;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Find the Heart ❤️</h1>
+  <p>Click on the boxes to find the surprise.</p>
+  <div class="grid">
+    <!-- 15 empty boxes, 1 hidden heart -->
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkHeart(this)"><span class="hidden-heart">❤️</span></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+    <div class="box" onclick="checkBox(this)"></div>
+  </div>
+  <div id="message">
+    <p>I'm deeply sorry for hurting you, Chand. You mean the world to me, and I promise to make things right. I love you.❤️</p>
+  </div>
+  <script>
+    function checkBox(box) {
+      box.style.backgroundColor = "#ffcccc";
+      box.style.pointerEvents = "none";
+    }
+    function checkHeart(box) {
+      const heart = box.querySelector(".hidden-heart");
+      heart.classList.add("show-heart");
+      document.getElementById("message").style.display = "block";
+    }
+  </script>
+</body>
+</html>
